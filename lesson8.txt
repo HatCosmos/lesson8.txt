@@ -1,0 +1,51 @@
+# Задание №1
+# Переворачиваем массив чисел
+
+N = int(input())
+arr = []
+
+for i in range(N):
+    arr.append(int(input()))
+
+arr.reverse()
+
+for x in arr:
+    print(x, end=" ")
+
+
+# Задание №2
+# Переставляем элементы массива
+
+N = int(input())
+arr = list(map(int, input().split()))
+
+if N > 0:
+    arr = [arr[-1]] + arr[:-1]
+
+for x in arr:
+    print(x, end=" ")
+
+
+# Задание №3
+# Минимальное количество лодок
+
+m = int(input())
+n = int(input())
+weights = []
+
+for i in range(n):
+    weights.append(int(input()))
+
+weights.sort()
+
+left = 0
+right = n - 1
+boats = 0
+
+while left <= right:
+    if left != right and weights[left] + weights[right] <= m:
+        left += 1
+    right -= 1
+    boats += 1
+
+print(boats)
